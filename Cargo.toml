@@ -1,0 +1,17 @@
+[package]
+name = "alloy-test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+alloy = { version = "0.3", features = ["full"] }
+alloy-primitives = { version = "0.8" }
+hex = { version = "0.4" }
+
+# Always optimize; building and running the guest takes much longer without optimization.
+[profile.dev]
+opt-level = 3
+
+[profile.release]
+debug = 1
+lto = true
